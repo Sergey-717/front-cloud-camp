@@ -11,10 +11,10 @@ export const AppContainer = styled.div`
 export const ContentContainer = styled.form`
   padding: 62px 110px;
   margin: 24px 0;
-  width: 900px;
+  width: 680px;
   left: calc(50% - 900px / 2);
   background: #ffffff;
-  border-radius: 12px 12px 0px 0px;
+  border-radius: 12px;
 `;
 
 export const ColumnContainer = styled.div`
@@ -28,8 +28,11 @@ export const FlexContainer = styled.div`
   display: flex;
   gap: 20px;
 `;
-export const FlexContainerForButtons = styled(FlexContainer)`
+
+export const FlexContainerForTips = styled(FlexContainer)`
   justify-content: space-between;
+`;
+export const FlexContainerForButtons = styled(FlexContainerForTips)`
   margin-top: 60px;
 `;
 
@@ -41,7 +44,7 @@ export const BlockContainerSmallGap = styled(ColumnContainer)`
 `;
 
 export const Divider = styled.div`
-  width: 852px;
+  width: 100%;
   height: 0px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   flex: none;

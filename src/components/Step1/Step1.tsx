@@ -14,15 +14,7 @@ import {
 } from "../../styles/components";
 import { ProgressStep1 } from "./ProgressStep1";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { handleInputChange } from "../../actions";
-import { store } from "../../store/configureStore";
-
-type Inputs = {
-  nickname: string;
-  name: string;
-  surname: string;
-  sex: "man" | "woman";
-};
+import { Inputs } from "../shared/Inputs";
 
 const tittles = ["nickname", "name", "surname", "sex"];
 export const Step1 = ({ newUser, setNewUserState }: any) => {

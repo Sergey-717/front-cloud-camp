@@ -33,24 +33,17 @@ export const InputStep = styled.input`
   align-self: stretch;
   flex-grow: 0;
 `;
-export const InputAbout = styled.input`
+export const InputAbout = styled.textarea`
+  font-family: "Open Sans", sans-serif;
+  resize: none;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 12px 12px 12px 0px;
+  padding: 12px;
   gap: 12px;
   width: 680px;
   height: 84px;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.16);
   border-radius: 4px;
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
-  z-index: 1;
 `;
 
 export const ButtonContained = styled.button`
@@ -60,7 +53,7 @@ export const ButtonContained = styled.button`
   align-items: center;
   padding: 12px 16px;
   gap: 8px;
-  width: 79px;
+  min-width: 79px;
   height: 44px;
   left: 24px;
   top: 369px;
@@ -89,7 +82,7 @@ export const ButtonOutlined = styled.button`
   align-items: center;
   padding: 12px 16px;
   gap: 8px;
-  width: 73px;
+  min-width: 73px;
   height: 44px;
   left: 110px;
   top: 697px;
@@ -150,4 +143,9 @@ export const Selector = styled.select`
   flex: none;
   align-self: stretch;
   flex-grow: 0;
+`;
+
+export const LengthCounter = styled.label`
+  opacity: 0.5;
+  font-size: 12px;
 `;

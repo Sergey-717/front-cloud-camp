@@ -8,10 +8,11 @@ export default function modalReducer(state = initialState.modal, action) {
         isModalActive: !state.isModalActive,
       };
     }
-    case "SUCCESS_RESULT": {
+    case "RESULT": {
       return {
         ...state,
-        success: true,
+        ...state.modal,
+        ...action.payload,
       };
     }
     default:

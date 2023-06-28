@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import userReducer from "./userReducer";
-import uiReducer from "./modalReducer";
+import modalReducer from "./modalReducer";
 
 const rootReducer = combineReducers({
   newUser: userReducer,
-  modal: uiReducer,
+  modal: modalReducer,
 });
 
 export default rootReducer;

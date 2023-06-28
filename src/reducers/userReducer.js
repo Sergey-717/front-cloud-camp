@@ -5,7 +5,6 @@ export default function userReducer(state = initialState.newUser, action) {
     case "ADD_NEW_USER": {
       return {
         ...state,
-
         ...state.newUser,
         ...action.payload,
       };

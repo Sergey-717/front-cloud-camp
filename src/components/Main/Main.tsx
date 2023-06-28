@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   ContentContainer,
@@ -8,15 +8,11 @@ import {
   FlexContainerForButtons,
   BlockContainerMiddleGap,
 } from "../../styles/containers";
-import { Avatar } from "./Avatar";
-import { IconFolder } from "./IconFolder";
+import { Avatar } from "./icons/Avatar";
+import { IconFolder } from "./icons/IconFolder";
 import { ButtonContained, InputMain } from "../../styles/components";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-type Inputs = {
-  phone: string;
-  email: string;
-};
+import { Inputs } from "../shared/Inputs";
 
 const myLinks = ["Telegram", "Github", "Resume"];
 
@@ -29,6 +25,7 @@ export const Main = ({ newUser, setNewUserState }: any) => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => data;
   console.log(errors);
+
   return (
     <ContentContainer onSubmit={handleSubmit(onSubmit)}>
       <ColumnContainer>
@@ -51,17 +48,28 @@ export const Main = ({ newUser, setNewUserState }: any) => {
           <BlockContainerMiddleGap>
             <label>Номер телефона</label>
             <InputMain
-              placeholder="+7 999 999-99-99"
-              type="text"
+              id="field-phone"
+              placeholder="+7 (999) 999-99-99"
+              type="number"
+              // maxLength={11}
               {...register("phone", { required: true })}
               value={newUser.phone}
-              onChange={(e) => setNewUserState("phone", e.target.value)}
+              onChange={(e) =>
+                setNewUserState(
+                  "phone",
+                  e.target.value.replace(
+                    /^(\d{3})(\d{3})(\d{2})(\d{2})$/,
+                    "+7 ($1) $2-$3-$4"
+                  )
+                )
+              }
             ></InputMain>
             {errors.phone && <span>This field is required</span>}
           </BlockContainerMiddleGap>
           <BlockContainerMiddleGap>
             <label>Email</label>
             <InputMain
+              id="field-email"
               placeholder="tim.jennings@example.com"
               type="email"
               {...register("email", { required: true })}

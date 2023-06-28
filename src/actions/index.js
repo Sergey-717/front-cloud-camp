@@ -1,9 +1,3 @@
-export const addContact = () => {
-  return {
-    type: "ADD_NEW_USER",
-  };
-};
-
 export const handleInputChange = (name, value) => {
   return {
     type: "HANDLE_INPUT_CHANGE",
@@ -16,8 +10,9 @@ export const toggleModal = () => {
     type: "TOGGLE_MODAL",
   };
 };
-export const successModal = () => {
+export const resultModal = (name, value) => {
   return {
-    type: "SUCCESS_RESULT",
+    type: "RESULT",
+    payload: { [name]: value },
   };
 };

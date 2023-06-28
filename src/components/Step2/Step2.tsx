@@ -3,26 +3,18 @@ import { Link } from "react-router-dom";
 import {
   ColumnContainer,
   ContentContainer,
-  FlexContainer,
   FlexContainerForButtons,
 } from "../../styles/containers";
-import { ProgressStep2 } from "./components/ProgressStep2";
+import { ProgressStep2 } from "./components/icons/ProgressStep2";
 import { ButtonContained, ButtonOutlined } from "../../styles/components";
 import { RadioGroup } from "./components/RadioGroup";
 import { CheckboxGroup } from "./components/CheckboxGroup";
 import { Advantages } from "./components/Advantages";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { Inputs } from "../shared/Inputs";
 
-const listOfComponents = [Advantages, CheckboxGroup, RadioGroup];
-
-type Inputs = {
-  advantages: string[];
-  checkbox: number[];
-  radio: number;
-};
 export const Step2 = ({ newUser, setNewUserState }: any) => {
   const {
-    register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();

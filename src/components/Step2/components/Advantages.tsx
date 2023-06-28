@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useState } from "react";
 import {
   DeleteButtonOutlined,
@@ -9,43 +10,57 @@ import {
   ColumnContainer,
   FlexContainer,
 } from "../../../styles/containers";
-import { IconTrash } from "./IconTrash";
-import { PlusIcon } from "./PlusIcon";
-import { Advantage } from "./Advantage";
+import { IconTrash } from "./icons/IconTrash";
+import { PlusIcon } from "./icons/PlusIcon";
+import { v4 as uuid } from "uuid";
 
 export const Advantages = ({ newUser, setNewUserState }: any) => {
-  const [advantages, setAdvantages] = useState([1, 2, 3]);
+  const [advantages, setAdvantages] = useState(
+    !!newUser.advantages.length
+      ? {
+          ...newUser.advantages.reduce((acc, x, i) => {
+            acc[uuid()] = { value: x };
+            return acc;
+          }, {}),
+        }
+      : {
+          [uuid()]: { value: "" },
+          [uuid()]: { value: "" },
+          [uuid()]: { value: "" },
+        }
+  );
 
+  const DeleteAdvantage = (advantage: string) => {
+    delete advantages[advantage];
+    setNewUserState("advantages", [
+      ...Object.values(advantages).map((x) => x.value),
+    ]);
+  };
   const oneAdvantageMore = () => {
-    // setNewUserState("advantages", [...newUser.advantages, ""]);
-    setAdvantages([...advantages, advantages.length + 1]);
+    setAdvantages({ ...advantages, [uuid()]: { value: "" } });
   };
-  const DeleteAdvantage = (value: string) => {
-    setNewUserState([...newUser.advantages.filter((el: any) => el !== value)]);
-    setAdvantages([...advantages.filter((el: any) => el !== value)]);
+
+  const setAdvantageValue = (el: object, value: string) => {
+    advantages[el].value = value;
+    setAdvantages({ ...advantages });
   };
-  const afterFocus = (value: string) => {
-    !newUser.advantages.includes(value) &&
-      !!value.length &&
-      setNewUserState("advantages", [...newUser.advantages, value]);
-    // setAdvantages([...advantages, ...newUser.advantages]);
+  const handleSetAdvantagesState = () => {
+    setNewUserState("advantages", [
+      ...Object.values(advantages).map(({ value }) => value),
+    ]);
   };
-  console.log(advantages);
   return (
     <ColumnContainer>
       <BlockContainerMiddleGap>
         <label>Advantages</label>
-        <Advantage></Advantage>
-        <Advantage></Advantage>
-        <Advantage></Advantage>
-        {/* {advantages.map((advantage: any, index: number) => (
+        {Object.keys(advantages).map((advantage: any, index: number) => (
           <FlexContainer key={advantage}>
             <InputStep
-              id={`field-advantages-${advantage}`}
+              id={`field-advantages-${index + 1}`}
               placeholder="Placeholder"
-              onBlur={(e) => afterFocus(e.target.value)}
-              // onChange={(e) => setAdvantages([...newUser.advantages[index] = e.target.value])}
-              value={newUser.advantages[index]}
+              onBlur={() => handleSetAdvantagesState()}
+              onChange={(e) => setAdvantageValue(advantage, e.target.value)}
+              value={advantages[advantage].value}
             />
 
             <DeleteButtonOutlined
@@ -55,7 +70,7 @@ export const Advantages = ({ newUser, setNewUserState }: any) => {
               <IconTrash />
             </DeleteButtonOutlined>
           </FlexContainer>
-        ))} */}
+        ))}
 
         <PlusButtonOutlined onClick={oneAdvantageMore} id="button-add">
           <PlusIcon color="#5558fa" />

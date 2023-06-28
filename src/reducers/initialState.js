@@ -13,7 +13,8 @@ const initialState = {
   },
   modal: {
     isModalActive: false,
-    success: false,
+    status: "",
+    message: "",
   },
 };
 
