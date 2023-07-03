@@ -37,7 +37,7 @@ export const Main = ({ newUser, setNewUserState }: any) => {
           <h3>Иван Иванов</h3>
           <FlexContainer>
             {myLinks.map((link) => (
-              <Link to="/" key={link}>
+              <Link to="/front-cloud-camp" key={link}>
                 <IconFolder />
                 {link}
               </Link>
