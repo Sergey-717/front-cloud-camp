@@ -61,7 +61,7 @@ function App() {
               />
             }
           ></Route>
-          <Route path="*" element={<Main />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         {modalState && (
           <Modal
