@@ -4,6 +4,7 @@ import {
   BlockContainerMiddleGap,
   ColumnContainer,
   ContentContainer,
+  FlexContainer,
   FlexContainerForButtons,
 } from "../../styles/containers";
 import {
@@ -27,7 +28,10 @@ export const Step1 = ({ newUser, setNewUserState }: any) => {
 
   return (
     <ContentContainer onSubmit={handleSubmit(onSubmit)}>
-      <ProgressStep1 />
+      <FlexContainer>
+        <ProgressStep1 />
+      </FlexContainer>
+
       <ColumnContainer>
         {tittles.map((tittle) => (
           <BlockContainerMiddleGap key={tittle}>
@@ -57,10 +61,10 @@ export const Step1 = ({ newUser, setNewUserState }: any) => {
         ))}
       </ColumnContainer>
       <FlexContainerForButtons>
-        <Link style={{ textDecoration: "none" }} to="/">
+        <Link to="/">
           <ButtonOutlined id="button-back">Назад</ButtonOutlined>
         </Link>
-        <Link style={{ textDecoration: "none" }} to="/step2" type="submit">
+        <Link to="/step2" type="submit">
           <ButtonContained id="button-next">Далее</ButtonContained>
         </Link>
       </FlexContainerForButtons>

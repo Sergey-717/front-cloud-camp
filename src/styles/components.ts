@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 export const InputMain = styled.input`
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   padding: 12px;
@@ -12,8 +10,9 @@ export const InputMain = styled.input`
   height: 44px;
   background: rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.16);
-  align-self: stretch;
-  flex-grow: 0;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const InputStep = styled.input`
@@ -39,7 +38,7 @@ export const InputAbout = styled.textarea`
   box-sizing: border-box;
   padding: 12px;
   gap: 12px;
-  width: 680px;
+  width: 50vw;
   height: 84px;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.16);
@@ -67,6 +66,8 @@ export const ButtonContained = styled.button`
   border: none;
   cursor: pointer;
   transition: 0.3s;
+  @media (max-width: 1024px) {
+  }
   &:hover {
     border: 1.5px solid #5558fa;
     color: black;

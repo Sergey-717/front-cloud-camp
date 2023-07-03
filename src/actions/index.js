@@ -10,9 +10,9 @@ export const toggleModal = () => {
     type: "TOGGLE_MODAL",
   };
 };
-export const resultModal = (name, value) => {
+export const resultModal = (response) => {
   return {
     type: "RESULT",
-    payload: { [name]: value },
+    payload: { response },
   };
 };

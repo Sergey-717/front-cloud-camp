@@ -11,17 +11,15 @@ import { CloseIcon } from "./icons/CloseIcon";
 import { FlexContainerForButtons } from "../../styles/containers";
 
 export const Modal = ({ handleActiveModalState }: any) => {
-  const [isSuccessModal, setSuccessModal] = useState(
-    store.getState().modal.success
-  );
+  const modal = store.getState().modal.response;
 
   return (
     <ModalActive>
-      {isSuccessModal ? (
+      {modal.status === "success" ? (
         <ModalContent>
-          <p>Форма успешно отправлена</p>
+          <p>{modal.message}</p>
           <SuccessIcon />
-          <Link style={{ textDecoration: "none" }} to="/">
+          <Link to="/">
             <ButtonContained
               id="button-to-main"
               onClick={handleActiveModalState}
@@ -33,7 +31,7 @@ export const Modal = ({ handleActiveModalState }: any) => {
       ) : (
         <ModalContent>
           <ModalButtons>
-            <p>Ошибка</p>
+            <p>{modal.message}</p>
             <CloseIcon />
           </ModalButtons>
           <ErrorIcon />

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ColumnContainer,
   ContentContainer,
+  FlexContainer,
   FlexContainerForButtons,
 } from "../../styles/containers";
 import { ProgressStep2 } from "./components/icons/ProgressStep2";
@@ -21,17 +22,20 @@ export const Step2 = ({ newUser, setNewUserState }: any) => {
   const onSubmit: SubmitHandler<Inputs> = (data) => data;
   return (
     <ContentContainer onSubmit={handleSubmit(onSubmit)}>
-      <ProgressStep2 />
+      <FlexContainer>
+        {" "}
+        <ProgressStep2 />
+      </FlexContainer>
       <ColumnContainer>
         <Advantages newUser={newUser} setNewUserState={setNewUserState} />
         <CheckboxGroup newUser={newUser} setNewUserState={setNewUserState} />
         <RadioGroup newUser={newUser} setNewUserState={setNewUserState} />
       </ColumnContainer>
       <FlexContainerForButtons>
-        <Link style={{ textDecoration: "none" }} to="/step1">
+        <Link to="/step1">
           <ButtonOutlined id="button-back">Назад</ButtonOutlined>
         </Link>
-        <Link style={{ textDecoration: "none" }} to="/step3">
+        <Link to="/step3">
           <ButtonContained id="button-next">Далее</ButtonContained>
         </Link>
       </FlexContainerForButtons>

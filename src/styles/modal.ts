@@ -28,6 +28,14 @@ export const ModalContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 1024px) {
+    width: 80%;
+    /* max-height: 20%; */
+    gap: 5px;
+    p {
+      font-size: 40px;
+    }
+  }
   p {
     margin: 0;
   }

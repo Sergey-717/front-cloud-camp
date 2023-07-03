@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ColumnContainer,
   ContentContainer,
+  FlexContainer,
   FlexContainerForButtons,
   FlexContainerForTips,
 } from "../../styles/containers";
@@ -36,26 +37,29 @@ export const Step3 = ({
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => data;
 
-  const handleDataModalState = (name: string, value: string) => {
-    store.dispatch(resultModal(`${name}`, value));
-  };
+  // const handleDataModalState = (name: string, value: string) => {
+  //   store.dispatch(resultModal(`${name}`, value));
+  // };
 
   const sendData = useCallback(async () => {
-    handleActiveModalState();
     const data = await axios
       .post(API_URL, newUser)
       .then((response) => {
-        return response.data;
+        store.dispatch(resultModal(response.data));
+        handleActiveModalState();
       })
       .catch((error) => error)
       .finally();
-    console.log(Object.keys(data));
-    console.log(Object.values(data));
+
+    // console.log(Object.values(data));
   }, []);
 
   return (
     <ContentContainer onSubmit={handleSubmit(onSubmit)}>
-      <ProgressStep3 />
+      <FlexContainer>
+        {" "}
+        <ProgressStep3 />
+      </FlexContainer>
       <ColumnContainer>
         <label>About</label>
         <InputAbout
@@ -74,7 +78,7 @@ export const Step3 = ({
         </LengthCounter>
       </FlexContainerForTips>
       <FlexContainerForButtons>
-        <Link style={{ textDecoration: "none" }} to="/step2">
+        <Link to="/step2">
           <ButtonOutlined>Назад</ButtonOutlined>
         </Link>
         <ButtonContained onClick={sendData}>Отправить</ButtonContained>

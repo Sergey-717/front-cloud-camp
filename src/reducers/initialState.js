@@ -13,8 +13,10 @@ const initialState = {
   },
   modal: {
     isModalActive: false,
-    status: "",
-    message: "",
+    response: {
+      status: "",
+      message: "",
+    },
   },
 };
 

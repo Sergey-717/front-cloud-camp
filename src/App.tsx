@@ -1,4 +1,3 @@
-import "./App.css";
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Main } from "./components/Main/Main";
@@ -12,7 +11,7 @@ import { handleInputChange, toggleModal } from "./actions";
 import { Modal } from "./components/Modal/Modal";
 
 function App() {
-  store.subscribe(() => console.log(store.getState()));
+  // store.subscribe(() => console.log(store.getState()));
   const [newUser, setNewUser] = useState(store.getState().newUser);
   const [modalState, setModalState] = useState(
     store.getState().modal.isModalActive
@@ -30,50 +29,48 @@ function App() {
   // store.dispatch(toggleModal());
   // console.log(store.getState());
   return (
-    <div className="App">
-      <AppContainer>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Main newUser={newUser} setNewUserState={setNewUserState} />
-              }
-            ></Route>
-            <Route
-              path="/step1"
-              element={
-                <Step1 newUser={newUser} setNewUserState={setNewUserState} />
-              }
-            ></Route>
-            <Route
-              path="/step2"
-              element={
-                <Step2 newUser={newUser} setNewUserState={setNewUserState} />
-              }
-            ></Route>
-            <Route
-              path="/step3"
-              element={
-                <Step3
-                  newUser={newUser}
-                  setNewUserState={setNewUserState}
-                  handleActiveModalState={handleActiveModalState}
-                  modalState={modalState}
-                />
-              }
-            ></Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          {modalState && (
-            <Modal
-              modalState={modalState}
-              handleActiveModalState={handleActiveModalState}
-            ></Modal>
-          )}
-        </BrowserRouter>
-      </AppContainer>
-    </div>
+    <AppContainer>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Main newUser={newUser} setNewUserState={setNewUserState} />
+            }
+          ></Route>
+          <Route
+            path="/step1"
+            element={
+              <Step1 newUser={newUser} setNewUserState={setNewUserState} />
+            }
+          ></Route>
+          <Route
+            path="/step2"
+            element={
+              <Step2 newUser={newUser} setNewUserState={setNewUserState} />
+            }
+          ></Route>
+          <Route
+            path="/step3"
+            element={
+              <Step3
+                newUser={newUser}
+                setNewUserState={setNewUserState}
+                handleActiveModalState={handleActiveModalState}
+                modalState={modalState}
+              />
+            }
+          ></Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        {modalState && (
+          <Modal
+            modalState={modalState}
+            handleActiveModalState={handleActiveModalState}
+          ></Modal>
+        )}
+      </BrowserRouter>
+    </AppContainer>
   );
 }
 
