@@ -61,10 +61,10 @@ export const Step1 = ({ newUser, setNewUserState }: any) => {
         ))}
       </ColumnContainer>
       <FlexContainerForButtons>
-        <Link to="/">
+        <Link to="/front-cloud-camp">
           <ButtonOutlined id="button-back">Назад</ButtonOutlined>
         </Link>
-        <Link to="/step2" type="submit">
+        <Link to="/front-cloud-camp/step2" type="submit">
           <ButtonContained id="button-next">Далее</ButtonContained>
         </Link>
       </FlexContainerForButtons>

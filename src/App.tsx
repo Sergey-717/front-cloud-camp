@@ -33,25 +33,25 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/"
+            path="/front-cloud-camp"
             element={
               <Main newUser={newUser} setNewUserState={setNewUserState} />
             }
           ></Route>
           <Route
-            path="/step1"
+            path="/front-cloud-camp/step1"
             element={
               <Step1 newUser={newUser} setNewUserState={setNewUserState} />
             }
           ></Route>
           <Route
-            path="/step2"
+            path="/front-cloud-camp/step2"
             element={
               <Step2 newUser={newUser} setNewUserState={setNewUserState} />
             }
           ></Route>
           <Route
-            path="/step3"
+            path="/front-cloud-camp/step3"
             element={
               <Step3
                 newUser={newUser}

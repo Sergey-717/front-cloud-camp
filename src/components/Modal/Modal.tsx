@@ -19,7 +19,7 @@ export const Modal = ({ handleActiveModalState }: any) => {
         <ModalContent>
           <p>{modal.message}</p>
           <SuccessIcon />
-          <Link to="/">
+          <Link to="/front-cloud-camp">
             <ButtonContained
               id="button-to-main"
               onClick={handleActiveModalState}

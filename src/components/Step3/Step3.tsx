@@ -78,7 +78,7 @@ export const Step3 = ({
         </LengthCounter>
       </FlexContainerForTips>
       <FlexContainerForButtons>
-        <Link to="/step2">
+        <Link to="/front-cloud-camp/step2">
           <ButtonOutlined>Назад</ButtonOutlined>
         </Link>
         <ButtonContained onClick={sendData}>Отправить</ButtonContained>

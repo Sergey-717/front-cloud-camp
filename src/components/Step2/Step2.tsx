@@ -32,10 +32,10 @@ export const Step2 = ({ newUser, setNewUserState }: any) => {
         <RadioGroup newUser={newUser} setNewUserState={setNewUserState} />
       </ColumnContainer>
       <FlexContainerForButtons>
-        <Link to="/step1">
+        <Link to="/front-cloud-camp/step1">
           <ButtonOutlined id="button-back">Назад</ButtonOutlined>
         </Link>
-        <Link to="/step3">
+        <Link to="/front-cloud-camp/step3">
           <ButtonContained id="button-next">Далее</ButtonContained>
         </Link>
       </FlexContainerForButtons>

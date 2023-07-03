@@ -73,7 +73,7 @@ export const Main = ({ newUser, setNewUserState }: any) => {
           {errors.email && <span>This field is required</span>}
         </BlockContainerMiddleGap>
         <FlexContainerForButtons>
-          <Link to="/step1" type="submit">
+          <Link to="/front-cloud-camp/step1" type="submit">
             <ButtonContained type="submit" id="button-start">
               Начать
             </ButtonContained>
